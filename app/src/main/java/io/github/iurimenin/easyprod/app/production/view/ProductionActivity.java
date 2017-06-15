@@ -57,7 +57,7 @@ public class ProductionActivity extends EasyProdActivity implements ProductionIn
                 PorterDuff.Mode.SRC_ATOP);
 
         if(this.getSupportActionBar() != null) {
-            this.getSupportActionBar().setTitle(getString(R.string.fiels));
+            this.getSupportActionBar().setTitle(getString(R.string.production));
             this.getSupportActionBar().setDisplayShowTitleEnabled(true);
             this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             this.getSupportActionBar().setHomeAsUpIndicator(arrowBack);
@@ -90,7 +90,7 @@ public class ProductionActivity extends EasyProdActivity implements ProductionIn
             mPresenter.loadProductions();
         }
 
-        super.updateMenuIcons(this.mAdapter.getItemCount());
+        super.updateMenuIcons(this.mAdapter.getSelectedItems().size());
     }
 
     protected void onDestroy() {

@@ -18,14 +18,14 @@ import io.github.iurimenin.easyprod.app.season.model.SeasonModel;
 public class SeasonUtils {
 
     private final Gson gson = new Gson();
-    private final Type type = new TypeToken() {}.getType();
+    private final Type type = new TypeToken<ArrayList<SeasonModel>>() {}.getType();
     private SharedPreferences sharedPref;
 
     public SeasonUtils(Context context) {
         this.sharedPref = context.getSharedPreferences("EASYPROD", 0);
     }
 
-    public final ArrayList<SeasonModel> addStoredSeasonsToList(ArrayList listSeason) {
+    public final ArrayList<SeasonModel> addStoredSeasonsToList(ArrayList<SeasonModel> listSeason) {
         String jsonStored = this.sharedPref.getString(SeasonModel.TAG, "");
 
         if (jsonStored == null || jsonStored.length() == 0) {
@@ -35,7 +35,7 @@ public class SeasonUtils {
 
             for (SeasonModel it : listStored) {
                 if (!listSeason.contains(it)) {
-                    listStored.add(it);
+                    listSeason.add(it);
                 }
             }
             return listStored;

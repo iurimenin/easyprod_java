@@ -3,6 +3,7 @@ package io.github.iurimenin.easyprod.app.farm.presenter;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.firebase.database.ChildEventListener;
@@ -122,7 +123,7 @@ public class FarmPresenter implements PresenterInterface {
                 }
 
                 if (mCallback != null) {
-                    mCallback.updateMenuIcons(mAdapter.getItemCount());
+                    mCallback.updateMenuIcons(mAdapter.getSelectedItens().size());
                 }
             }
 
@@ -135,8 +136,11 @@ public class FarmPresenter implements PresenterInterface {
     }
 
     public final void deleteSelectedItems(ArrayList<FarmModel> selectedItens) {
-        for (FarmModel farm : selectedItens)
+        for (FarmModel farm : selectedItens) {
             farmRef.child(farm.getKey()).removeValue();
+        }
+
+        this.mAdapter.notifyDataSetChanged();
     }
 
     public final void clickItem(FarmModel farmModel) {
@@ -159,9 +163,14 @@ public class FarmPresenter implements PresenterInterface {
 
         if (isPositive) {
             if (this.isDialogValid(materialDialog)) {
+
+                TextView textViewFarmKey =
+                        (TextView) materialDialog.findViewById(R.id.textViewFarmKey);
+                MaterialEditText  materialEditTextFarmName =
+                        (MaterialEditText)materialDialog.findViewById(R.id.materialEditTextFarmName);
                 FarmModel farm = new FarmModel(
-                        ((EditText)materialDialog.findViewById(R.id.textViewFarmKey)).getText().toString(),
-                        ((MaterialEditText)materialDialog.findViewById(R.id.materialEditTextFarmName)).getText().toString()
+                        textViewFarmKey.getText().toString(),
+                        materialEditTextFarmName.getText().toString()
                 );
 
                 farm.save();

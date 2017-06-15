@@ -51,10 +51,28 @@ public abstract class EasyProdActivity extends AppCompatActivity implements Call
             if(this.mMenuItemLogout != null) {
                 this.mMenuItemLogout.setVisible(false);
             }
-        } else {
+        } else if (itemsCount >= 2) {
 
             if(this.mMenuItemDelete != null) {
                 this.mMenuItemDelete.setVisible(true);
+            }
+
+            if(this.mMenuItemEdit != null) {
+                this.mMenuItemEdit.setVisible(false);
+            }
+
+            if(this.mMenuItemAbout != null) {
+                this.mMenuItemAbout.setVisible(false);
+            }
+
+            if(this.mMenuItemLogout != null) {
+                this.mMenuItemLogout.setVisible(false);
+            }
+
+        } else {
+
+            if(this.mMenuItemDelete != null) {
+                this.mMenuItemDelete.setVisible(false);
             }
 
             if(this.mMenuItemEdit != null) {

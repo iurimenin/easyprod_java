@@ -97,7 +97,7 @@ public class CultivationPresenter implements PresenterInterface {
                 }
 
                 if(mCallback != null) {
-                    mCallback.updateMenuIcons(mAdapter != null? mAdapter.getItemCount() : 0);
+                    mCallback.updateMenuIcons(mAdapter.getSelectedItems().size());
                 }
 
             }
@@ -155,7 +155,7 @@ public class CultivationPresenter implements PresenterInterface {
     }
 
     private final void loadSeasons() {
-        Type type = (new TypeToken() {}).getType();
+        Type type = new TypeToken<ArrayList<SeasonModel>>() {}.getType();
         SharedPreferences sharedPref = this.mContext.getSharedPreferences("EASYPROD", 0);
         String jsonStored = sharedPref.getString(SeasonModel.TAG, "");
 

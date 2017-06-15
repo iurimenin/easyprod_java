@@ -52,7 +52,7 @@ public class FarmAdapter extends RecyclerView.Adapter<FarmAdapter.ViewHolder> {
 
         View view = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.item_cultivation, parent, false);
+                .inflate(R.layout.item_farm, parent, false);
         return new FarmAdapter.ViewHolder(view);
     }
 
@@ -138,7 +138,7 @@ public class FarmAdapter extends RecyclerView.Adapter<FarmAdapter.ViewHolder> {
 
     public void removeSelecionts() {
         selectedItems.clear();
-        mCallback.updateMenuIcons(getItemCount());
+        mCallback.updateMenuIcons(selectedItems.size());
         this.notifyDataSetChanged();
     }
 }

@@ -87,7 +87,7 @@ public class FieldActivity extends EasyProdActivity {
             mPresenter.loadFields();
         }
 
-        this.updateMenuIcons(this.mAdapter.getItemCount());
+        this.updateMenuIcons(this.mAdapter.getSelectedItems().size());
     }
 
     protected void onDestroy() {

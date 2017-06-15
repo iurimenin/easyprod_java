@@ -85,7 +85,7 @@ public class ProductionPresenter implements PresenterInterface {
                 }
 
                 if(mCallback != null) {
-                    mCallback.updateMenuIcons(mAdapter.getItemCount());
+                    mCallback.updateMenuIcons(mAdapter.getSelectedItems().size());
                 }
 
                 ProductionPresenter.this.updateTotalProduction();
@@ -103,9 +103,8 @@ public class ProductionPresenter implements PresenterInterface {
     public void save(MaterialDialog materialDialog, boolean isPositive) {
 
         if(isPositive) {
+
             if(this.isDialogValid(materialDialog)) {
-
-
                 TextView textViewProductionKey =
                         (TextView) materialDialog.findViewById(R.id.textViewProductionKey);
                 MoneyMaskMaterialEditText materialEditTextProductionBags =
@@ -145,6 +144,7 @@ public class ProductionPresenter implements PresenterInterface {
             this.mProductionRef.child(item.getKey()).removeValue();
         }
 
+        this.mAdapter.notifyDataSetChanged();
     }
 
     private final void updateTotalProduction() {
@@ -158,7 +158,9 @@ public class ProductionPresenter implements PresenterInterface {
         }
 
         double result = totalBags / totalAreaField;
-        mCallback.updateProduction(result);
+        if (mCallback != null) {
+            mCallback.updateProduction(result);
+        }
     }
 
     private final void updateWidget() {

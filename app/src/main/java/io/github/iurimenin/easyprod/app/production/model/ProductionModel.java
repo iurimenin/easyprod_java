@@ -80,4 +80,19 @@ public class ProductionModel implements Parcelable {
             return new ProductionModel[size];
         }
     };
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ProductionModel that = (ProductionModel) o;
+
+        return key != null ? key.equals(that.key) : that.key == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return key != null ? key.hashCode() : 0;
+    }
 }

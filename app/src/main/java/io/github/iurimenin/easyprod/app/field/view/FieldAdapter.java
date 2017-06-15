@@ -127,7 +127,7 @@ public class FieldAdapter extends RecyclerView.Adapter<FieldAdapter.ViewHolder> 
 
     public final void removeSelection() {
         this.selectedItems.clear();
-        this.mCallback.updateMenuIcons(this.getItemCount());
+        this.mCallback.updateMenuIcons(selectedItems.size());
         this.notifyDataSetChanged();
     }
 

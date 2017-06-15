@@ -19,6 +19,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.github.iurimenin.easyprod.R;
 import io.github.iurimenin.easyprod.app.farm.model.FarmModel;
 import io.github.iurimenin.easyprod.app.farm.presenter.FarmPresenter;
@@ -38,10 +39,14 @@ public class FarmActivity extends EasyProdActivity {
 
     @BindView(R.id.floatingActionButtonAddFarm) FloatingActionButton mFloatingActionButtonAddFarm;
     @BindView(R.id.superRecyclerViewFarms) SuperRecyclerView mSuperRecyclerViewFarms;
-    protected void onCreate(Bundle savedInstanceState) {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_farms);
-        
+
+        ButterKnife.bind(this);
+
         if (this.getSupportActionBar() != null) {
             this.getSupportActionBar().setTitle(getString(R.string.farms));
         }
@@ -73,10 +78,10 @@ public class FarmActivity extends EasyProdActivity {
             mPresenter.loadFarms();
         }
         
-        super.updateMenuIcons(Integer.valueOf(this.mAdapter.getItemCount()));
+        super.updateMenuIcons(this.mAdapter.getSelectedItens().size());
     }
 
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         if(this.mPresenter != null) {
             mPresenter.unBindView();

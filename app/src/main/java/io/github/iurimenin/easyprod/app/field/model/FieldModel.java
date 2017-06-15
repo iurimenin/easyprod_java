@@ -93,4 +93,19 @@ public class FieldModel implements Parcelable {
             return new FieldModel[size];
         }
     };
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        FieldModel that = (FieldModel) o;
+
+        return key != null ? key.equals(that.key) : that.key == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return key != null ? key.hashCode() : 0;
+    }
 }

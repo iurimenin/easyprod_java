@@ -88,7 +88,7 @@ public class CultivationActivity extends EasyProdActivity {
             this.mPresenter.loadCultivations();
         }
 
-        super.updateMenuIcons(this.mAdapter.getItemCount());
+        super.updateMenuIcons(this.mAdapter.getSelectedItems().size());
     }
 
     protected void onDestroy() {

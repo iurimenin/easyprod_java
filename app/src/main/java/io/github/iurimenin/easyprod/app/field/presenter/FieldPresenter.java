@@ -84,7 +84,7 @@ public class FieldPresenter implements PresenterInterface {
                 }
 
                 if(mCallback != null) {
-                    mCallback.updateMenuIcons(mAdapter.getItemCount());
+                    mCallback.updateMenuIcons(mAdapter.getSelectedItems().size());
                 }
             }
 
@@ -158,5 +158,7 @@ public class FieldPresenter implements PresenterInterface {
         for(FieldModel item : selectedItens){
             this.mFieldRef.child(item.getKey()).removeValue();
         }
+
+        this.mAdapter.notifyDataSetChanged();
     }
 }

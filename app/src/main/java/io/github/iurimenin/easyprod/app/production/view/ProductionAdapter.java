@@ -52,7 +52,7 @@ public class ProductionAdapter extends RecyclerView.Adapter<ProductionAdapter.Vi
 
         View view = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.item_cultivation, parent, false);
+                .inflate(R.layout.item_production, parent, false);
         return new ProductionAdapter.ViewHolder(view);
     }
 
@@ -126,7 +126,7 @@ public class ProductionAdapter extends RecyclerView.Adapter<ProductionAdapter.Vi
 
     public final void removeSelection() {
         this.selectedItems.clear();
-        this.mCallback.updateMenuIcons(this.getItemCount());
+        this.mCallback.updateMenuIcons(selectedItems.size());
         this.notifyDataSetChanged();
     }
 

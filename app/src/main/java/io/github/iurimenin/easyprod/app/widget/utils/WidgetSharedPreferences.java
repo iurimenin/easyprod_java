@@ -24,7 +24,7 @@ public class WidgetSharedPreferences {
     public WidgetSharedPreferences (Context context) {
 
         gson = new Gson();
-        type = new TypeToken() {}.getType();
+        type = new TypeToken<ArrayList<WidgetModel>>() {}.getType();
         sharedPref = context.getSharedPreferences("EASYPROD", Context.MODE_PRIVATE);
     }
 
