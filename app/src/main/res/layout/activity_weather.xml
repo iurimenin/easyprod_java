@@ -6,17 +6,16 @@
     android:id="@+id/constraintLayoutActivityField"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.field.view.FieldActivity">
+    tools:context=".app.weather.view.WeatherActivity">
 
     <TextView
         android:id="@+id/textViewWeatherLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/weather_city"
         android:textAlignment="center"
-        android:textAppearance="@android:style/TextAppearance.Holo.Light.Large"
-        android:textColor="@color/colorPrimaryText"
+        android:textSize="@dimen/weather_text_size"
+        android:text="@string/weather_city"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent" />

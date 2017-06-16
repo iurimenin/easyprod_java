@@ -13,7 +13,7 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file("my-release-key.jks")
+            storeFile file("AppKeystore.jks")
             storePassword "iurieasyprod"
             keyAlias "EasyProd"
             keyPassword "iurieasyprod"
