@@ -11,11 +11,20 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        release {
+            storeFile file("my-release-key.jks")
+            storePassword "iurieasyprod"
+            keyAlias "EasyProd"
+            keyPassword "iurieasyprod"
+        }
+    }
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
         }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -45,14 +54,17 @@ dependencies {
     compile "com.google.firebase:firebase-database:${firebaseVersion}"
     compile "com.google.firebase:firebase-crash:${firebaseVersion}"
 
-    compile "com.firebaseui:firebase-ui-database:${firebaseUIVersion}"
     compile "com.firebaseui:firebase-ui-auth:${firebaseUIVersion}"
 
+    compile "com.google.android.gms:play-services-location:${firebaseVersion}"
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.afollestad.material-dialogs:core:0.9.4.5'
     compile 'com.malinskiy:superrecyclerview:1.1.4'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 }
 apply plugin: 'com.google.gms.google-services'

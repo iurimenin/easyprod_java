@@ -96,6 +96,7 @@ public class FarmActivity extends EasyProdActivity {
         mMenuItemLogout = menu.findItem(R.id.menuMainItemLogout);
         mMenuItemDelete = menu.findItem(R.id.menuMainItemDelete);
         mMenuItemEdit = menu.findItem(R.id.menuMainItemEdit);
+        mMenuItemWeather = menu.findItem(R.id.menuMainItemWeather);
         return true;
     }
 
@@ -112,6 +113,8 @@ public class FarmActivity extends EasyProdActivity {
             if(this.mPresenter != null) {
                 mPresenter.deleteSelectedItems(this.mAdapter.getSelectedItens());
             }
+        } else if (item.getItemId() == R.id.menuMainItemWeather) {
+            mPresenter.startWeatherActivity();
         }
 
         return true;

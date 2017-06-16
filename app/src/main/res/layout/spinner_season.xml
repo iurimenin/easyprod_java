@@ -3,8 +3,8 @@
     style="?android:attr/dropDownItemStyle"
     android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
     android:singleLine="true"
-    android:textSize="14sp"
-    android:textColor="#000"
+    android:textSize="@dimen/text_size_spinner"
+    android:textColor="@android:color/black"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:ellipsize="marquee" />

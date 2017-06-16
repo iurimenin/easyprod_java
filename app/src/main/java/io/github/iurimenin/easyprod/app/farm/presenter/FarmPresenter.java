@@ -25,6 +25,7 @@ import io.github.iurimenin.easyprod.app.util.CallbackInterface;
 import io.github.iurimenin.easyprod.app.util.FirebaseUtils;
 import io.github.iurimenin.easyprod.app.util.PresenterInterface;
 import io.github.iurimenin.easyprod.app.view.AboutActivity;
+import io.github.iurimenin.easyprod.app.weather.view.WeatherActivity;
 
 /**
  * Created by Iuri Menin on 14/06/17.
@@ -149,7 +150,6 @@ public class FarmPresenter implements PresenterInterface {
         if (this.mContext != null) {
             mContext.startActivity(i);
         }
-
     }
 
     public final void showAbout() {
@@ -196,5 +196,12 @@ public class FarmPresenter implements PresenterInterface {
         }
 
         return true;
+    }
+
+    public void startWeatherActivity() {
+        Intent i = new Intent(this.mContext, WeatherActivity.class);
+        if (this.mContext != null) {
+            mContext.startActivity(i);
+        }
     }
 }

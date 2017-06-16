@@ -3,4 +3,9 @@
     <dimen name="widget_margin">8dp</dimen>
     <dimen name="default_height_material">56dp</dimen>
     <dimen name="list_item_padding_horizontal_material">16dp</dimen>
+    <dimen name="text_size_spinner">14sp</dimen>
+    <dimen name="list_icon">40dp</dimen>
+    <dimen name="weather_text_width">49dp</dimen>
+    <dimen name="weather_temperature_space">8dp</dimen>
+    <dimen name="weather_text_size">32dp</dimen>
 </resources>

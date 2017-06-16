@@ -66,7 +66,8 @@ public class ProductionActivity extends EasyProdActivity implements ProductionIn
         this.mCultivation = getIntent().getExtras().getParcelable(CultivationModel.TAG);
         this.mField = getIntent().getExtras().getParcelable(FieldModel.TAG);
 
-        mTextViewFieldName.setText(mCultivation.getName() + getString(R.string.season) + " " + mCultivation.getSeasonName());
+        mTextViewFieldName.setText(mCultivation.getName() + " "
+                + getString(R.string.season) + " " + mCultivation.getSeasonName());
         mFloatingActionButtonAddProduction.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
                 addProduction();

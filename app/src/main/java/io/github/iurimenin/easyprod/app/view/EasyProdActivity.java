@@ -15,6 +15,7 @@ public abstract class EasyProdActivity extends AppCompatActivity implements Call
     protected MenuItem mMenuItemDelete;
     protected MenuItem mMenuItemAbout;
     protected MenuItem mMenuItemLogout;
+    protected MenuItem mMenuItemWeather;
 
     public void updateMenuIcons(Integer itemsCount) {
         if (itemsCount == 0) {
@@ -34,6 +35,10 @@ public abstract class EasyProdActivity extends AppCompatActivity implements Call
             if(this.mMenuItemLogout != null) {
                 this.mMenuItemLogout.setVisible(true);
             }
+
+            if(this.mMenuItemWeather != null) {
+                this.mMenuItemWeather.setVisible(true);
+            }
         } else if (itemsCount == 1) {
 
             if(this.mMenuItemDelete != null) {
@@ -50,6 +55,10 @@ public abstract class EasyProdActivity extends AppCompatActivity implements Call
 
             if(this.mMenuItemLogout != null) {
                 this.mMenuItemLogout.setVisible(false);
+            }
+
+            if(this.mMenuItemWeather != null) {
+                this.mMenuItemWeather.setVisible(false);
             }
         } else if (itemsCount >= 2) {
 
@@ -69,6 +78,9 @@ public abstract class EasyProdActivity extends AppCompatActivity implements Call
                 this.mMenuItemLogout.setVisible(false);
             }
 
+            if(this.mMenuItemWeather != null) {
+                this.mMenuItemWeather.setVisible(false);
+            }
         } else {
 
             if(this.mMenuItemDelete != null) {
@@ -85,6 +97,10 @@ public abstract class EasyProdActivity extends AppCompatActivity implements Call
 
             if(this.mMenuItemLogout != null) {
                 this.mMenuItemLogout.setVisible(false);
+            }
+
+            if(this.mMenuItemWeather != null) {
+                this.mMenuItemWeather.setVisible(false);
             }
         }
     }
