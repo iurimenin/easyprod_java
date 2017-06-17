@@ -1,6 +1,6 @@
 # EasyProd
 
-Final project from Android [Developer Nanodegree](https://www.udacity.com/course/android-developer-nanodegree-by-google--nd801)
+Final project from Android [Developer Nanodegree](https://www.udacity.com/course/android-developer-nanodegree-by-google--nd801) made in Java
 
 This project uses [Firebase](https://firebase.google.com/) to authenticate users and save data.
 
